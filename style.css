@@ -4,6 +4,7 @@ Theme URI: https://future-imperfect.topher1kenobe.com
 Author: Topher
 Author URI: http://topher1kenobe.com
 Description: Just a blog theme.  Design based on the <a href="http://html5up.net/future-imperfect">Future Imperfect html5up</a> template. Requires WordPress 4.5+. Support for subtitles is provided by <a href="https://wordpress.org/plugins/wp-subtitle/">WP-Subtitle</a>.
+Tags: light, two-columns, left-sidebar, fluid-layout, responsive-layout, custom-header, custom-menu, featured-image-header, featured-images, theme-options, threaded-comments, translation-ready
 Version: 1.0.0
 Text Domain: future-imperfect
 License: GNU General Public License v3 or later
@@ -1594,6 +1595,7 @@ Free for personal and commercial use under the CC BY 4.0 license (https://creati
 		overflow: auto;
 		padding: 10px;
 		border: 1px solid #ccc;
+		max-width: 686px;
 	}
 
 		pre code {
@@ -2112,12 +2114,12 @@ Free for personal and commercial use under the CC BY 4.0 license (https://creati
 
 	.post img {
 		height: auto;
-		max-width: 100%;
+		max-width: 686px;
 	}
 
 	figure.alignnone {
 		height: auto;
-		max-width: 100%;
+		max-width: 686px;
 	}
 
 	img.alignleft, figure.alignleft {
@@ -2412,9 +2414,21 @@ Free for personal and commercial use under the CC BY 4.0 license (https://creati
 					text-align: center;
 				}
 
-					ul.actions.pagination .next, ul.actions.pagination .previous {
-						min-width: 20em;
-					}
+				ul.actions.pagination .next, ul.actions.pagination .previous {
+					min-width: 20em;
+				}
+
+				.post img {
+					max-width: 100%;
+				}
+
+				figure.alignnone {
+					max-width: 100%;
+				}
+
+				pre {
+					max-width: 100%;
+				}
 
 			}
 
@@ -2730,6 +2744,8 @@ Free for personal and commercial use under the CC BY 4.0 license (https://creati
 				flex-grow: 1;
 				-ms-flex: 1;
 				padding: 3.75em 3em 3.3em 3em;
+				width: 414px;
+				word-wrap: break-word;
 			}
 
 				.post > header .title h2 {
@@ -2868,6 +2884,7 @@ Free for personal and commercial use under the CC BY 4.0 license (https://creati
 						margin: 0 0 2em 0;
 						padding: 0;
 						text-align: center;
+						width: 100%;
 					}
 
 					.post > header .meta {
@@ -3399,6 +3416,11 @@ Free for personal and commercial use under the CC BY 4.0 license (https://creati
 
 /* Intro */
 
+    .custom-logo {
+        max-width: 100%;
+        height: auto;
+    }
+
 	#intro .logo {
 		border-bottom: 0;
 		display: inline-block;
@@ -3593,3 +3615,28 @@ Free for personal and commercial use under the CC BY 4.0 license (https://creati
 			}
 
 		}
+
+/* Comments */
+.comment {
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  list-style-type: none;
+  padding: 10px;
+}
+.comment.odd {
+  background-color: #eee;
+}
+.comment.even {
+  background-color: #f4f4f4;
+}
+.comment .avatar {
+  border-radius: 50%;
+  float: left;
+  margin: 0 20px 10px 0;
+}
+.comment-content {
+  clear: left;
+}
+.comment .children {
+  margin-top: 20px;
+}

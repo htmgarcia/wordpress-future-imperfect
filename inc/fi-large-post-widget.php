@@ -60,13 +60,16 @@ class Future_Imperfect_Large_Post_List_Widget extends WP_Widget {
 				$output .= '<article class="mini-post">' . "\n";
 					$output .= '<header>' . "\n";
 						$output .= '<h3><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>' . "\n";
-						$output .= '<time class="published" datetime="' . esc_attr( get_the_date( 'Y-m-d' ) ) . '">' . esc_attr( get_the_date( 'F j, Y' ) ) . '</time>' . "\n";
+						$output .= '<time class="published" datetime="' . esc_attr( get_the_time( 'Y-m-d' ) ) . '">' . esc_attr( get_the_time( 'F j, Y' ) ) . '</time>' . "\n";
 						$output .= '<a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" class="author">' . get_avatar( get_the_author_meta( 'ID' ), 36 ) . '</a>' . "\n";
 					$output .= '</header>' . "\n";
 
 				if ( has_post_thumbnail() ) {
+					$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'future-imperfect-small' );
+
 					$output .= '<a href="' . esc_url( get_permalink() ) . '" class="image">';
-					$output .= get_the_post_thumbnail( get_the_ID(), 'future-imperfect-small' );
+					//$output .= get_the_post_thumbnail( get_the_ID(), 'future-imperfect-small' );
+					$output .= '<img src="' . $thumbnail[0] . '">' . "\n";
 					$output .= '</a>' . "\n";
 				}
 

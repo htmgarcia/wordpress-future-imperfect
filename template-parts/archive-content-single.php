@@ -12,16 +12,22 @@
 
 		</div>
 		<div class="meta">
-			<time class="published" datetime="<?php echo esc_attr( get_the_date( 'Y-m-d' ) ); ?>"><?php echo esc_attr( get_the_date( 'F j, Y' ) ); ?></time>
+			<time class="published" datetime="<?php echo esc_attr( get_the_time( 'Y-m-d' ) ); ?>"><?php echo esc_attr( get_the_time( 'F j, Y' ) ); ?></time>
 			<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" class="author"><span class="name"><?php echo esc_html( get_the_author() ); ?></span><?php echo get_avatar( get_the_author_meta( 'ID' ), 36 ); ?></a>
 		</div>
 	</header>
 	
 	<?php
 	if ( has_post_thumbnail() ) {
-		echo '<a href="' . esc_url( get_permalink() ) . '" class="image featured">';
-		the_post_thumbnail( 'future-imperfect-large' );
-		echo '</a>';
+		// get the image dimensions
+		$image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'future-imperfect-large' );
+
+		// if the image is wider than tall then print it
+		if ( $image[1] > $image[2] ) {
+			echo '<a href="' . esc_url( get_permalink() ) . '" class="image featured">';
+			the_post_thumbnail( 'future-imperfect-large' );
+			echo '</a>';
+		}
 	}
 	?>
 
